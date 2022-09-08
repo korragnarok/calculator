@@ -1,0 +1,86 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Lato', serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #cacfd6 0%, #d6e5e3 100%) fixed no-repeat;
+}
+
+.calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.display {
+    background-color: #cac3c364;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 10px 10px 0 0;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.current-operand {
+    font-size: 2rem;
+    text-align: right;
+}
+
+.prev-operand {
+    font-size: 1rem;
+    text-align: right;
+    color: #7f8c8d;
+}
+
+button {
+    background-color:rgba(255, 255, 255, 0.55);
+    font-size: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+button:nth-of-type(3), button:nth-of-type(7), button:nth-of-type(11), button:nth-of-type(15), button:nth-of-type(18) {
+    background-color: #9fd8cb;
+}
+
+button:nth-of-type(3):hover, button:nth-of-type(7):hover, button:nth-of-type(11):hover, button:nth-of-type(15):hover, button:nth-of-type(18):hover {
+    background-color: #afddd2;
+}
+
+button:first-of-type, button:nth-of-type(2) {
+    background-color: #cac3c364;
+}
+
+button:first-of-type:hover, button:nth-of-type(2):hover {
+    background-color: #dad6d664;
+}
+
+button:nth-of-type(16) {
+    border-radius: 0 0 0 10px;
+}
+
+button:nth-of-type(18) {
+    background-color: rgba(255, 166, 0, 0.655);
+    border-radius: 0 0 10px 0;
+}
