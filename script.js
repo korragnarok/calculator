@@ -9,6 +9,7 @@ class Calculator {
         this.currentOperand = ''
         this.previousOperand = ''
         this.operation = undefined
+        this.newEquation = true;
     }
 
     delete() {
@@ -18,6 +19,10 @@ class Calculator {
     appendNumber(number) {
         if (number === '.' && this.currentOperand.includes('.')) return
         this.currentOperand = this.currentOperand.toString() + number.toString()
+        if(this.newEquation) {
+            this.clear()
+            this.newEquation = false
+        }
     }
 
     chooseOperation(operation) {
@@ -28,6 +33,7 @@ class Calculator {
         this.operation = operation
         this.previousOperand = this.currentOperand
         this.currentOperand = ''
+        this.newEquation = false
     }
 
     compute(e) {
@@ -83,6 +89,10 @@ class Calculator {
             this.previousOperandTextElement.innerText = ''
         }
     }
+
+    setNewEquation() {
+        this.newEquation = true;
+    }
 }
 
 const numberButtons = document.querySelectorAll('[data-number]')
@@ -111,6 +121,7 @@ operationButtons.forEach(button => {
 
 equalsButton.addEventListener('click', button => {
     calculator.compute()
+    calculator.setNewEquation()
     calculator.updateDisplay()
 })
 
